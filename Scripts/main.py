@@ -1,24 +1,26 @@
 ################################# NY HOSPITALS #################################
 #
-# Title:
-# Files: paths.py, datacleaning.py, inputdata.py, [add more here]
+# Title: Freddie
+# Files: cleaning.py,hospitalsNY.py,input.py, main.py,path.py,regression.py,statistics.py,test_2.py,test.py
+
 #
-# Author:
-# Email:
+# Author:Naixin Zhang
+# Email:nzhang228@wisc.edu
 #
 ############################### OUTSIDE HELP CREDITS ###########################
 #
 # Persons: Cornelia Ilin
-# Online sources:
+# Online sources: available in README file
 #
 ############################### 80 COLUMNS WIDE ################################
 
-
 #import modules here
-from Scripts import hospitalsNY as hp
-from Scripts import path
-from Scripts import input as ip
-from Scripts import cleaning as cl
+import hospitalsNY as hp
+import path
+import input as ip
+import cleaning as cl
+import statistics as st
+import regression as rg
 
 
 '''
@@ -78,27 +80,39 @@ def input_data():
         print("What are the names of your data files?")
         input_names = input(">: ")
         print("What is the data structure you would like to work with?")
-        input_data_structure = input(">: ")
-        state, data = ip.read_data(input_names, input_data_structure, input_path)
+        global data_structure
+        data_structure = input(">: ")
+        state, data = ip.read_data(input_names, data_structure, input_path)
     return data
-def data_cleaning(data_raw):
-    '''
-    # your comments here
-    '''
-    cl.row_col_number(data_raw)
-    
 
+def data_cleaning(data_raw, output_path):
+    '''
+    # this function will get the current raw data's column number and row number
+    # then remove mising values outlier values then make the column name consistent
+    # @param: data_raw is the original data including three years data 
+    #@and the output_path is the output address where we can outpu the data being cleaned
+    '''
+    cl.row_col_number(data_raw,data_structure)
+    data_no_nan = cl.remove_missing_value(data_raw,data_structure)
+    data_no_nan_outlier = cl.remove_outliers(data_no_nan)
+    cl.data_align(data_no_nan_outlier, output_path)
 def summary_stats():
     '''
-    # your comments here
+    # this function includes using the final data to draw plots.I use five different formates to plot
     '''
-    pass 
     
+    data_clean = st.import_clean_data(output_path)
+    st.plot_asthma(data_clean)
+    st.plot_pay_source()
+    global data_concat
+    data_concat = st.print_stay_length_by_disease(data_clean)
+    st.plot_cost_vs_year()
+    st.plot_charge_cost()
 def linear_model():
     '''
-    # your comments here
+    # this function doing the regression
     '''
-    pass 
+    rg.reg_charge_cost(data_concat)
         
 
     
@@ -123,9 +137,11 @@ def main():
     output_path()
     
     # input the data
-    data_raw = input_data()
+    data_raw, data_structure = input_data()
     
-    data_cleaning(data_raw)
-
+    data_cleaning(data_raw,data_structure,output_path)
+    
+    summary_stats()
+    linear_model()
 if __name__ == "__main__":
     main()

@@ -1,21 +1,26 @@
 ################################# NY HOSPITALS #################################
 #
-# Title:
-# Files: 
+# Title: Freddie
+# Files: cleaning.py,hospitalsNY.py,input.py, main.py,path.py,regression.py,statistics.py,test_2.py,test.py
+
 #
-# Author:
-# Email:
+# Author:Naixin Zhang
+# Email:nzhang228@wisc.edu
 #
 ############################### OUTSIDE HELP CREDITS ###########################
 #
 # Persons: Cornelia Ilin
-# Online sources:
+# Online sources: available in README file
 #
 ############################### 80 COLUMNS WIDE ################################
 import csv
 import numpy as np
 import pandas as pd
 import os
+
+'''
+# The input.py script read data from input/RawData using three formates
+'''
 
 
 def read_data(file_names, data_structure, input_path):
@@ -40,15 +45,16 @@ def read_data(file_names, data_structure, input_path):
     data_raw = []
     
     if data_structure == 'list(csv)':
-        with open(os.path.join(input_path, file_names), 'rU') as file:
-            data_csv= csv.reader(file_names, delimiter=",")
-            return True, data_csv
-    
+        for filename in file_names_list:
+            with open(os.path.join(input_path, filename), 'r') as f:
+                reader = csv.reader(f, delimiter=",")
+                data_raw.append(list(reader))
+        return True, data_raw
     if data_structure == 'array(numpy)':
-        data_numpy = np.genfromtxt(os.path.join(input_path, file_names),delimiter=',')
-    
+        for filename in file_names_list:
+            data_raw.append(np.genfromtxt(os.path.join(input_path, filename),delimiter=','))
     if data_structure == 'dataframe(pandas)':
         for filename in file_names_list:
-            df = pd.read_csv(os.path.join(input_path, filename), index_col = None, header = 0)
+            df = pd.read_csv(os.path.join(input_path, filename), index_col = None, header = 0, low_memory = False)
             data_raw.append(df)
     return True, data_raw

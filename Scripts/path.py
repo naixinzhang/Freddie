@@ -1,26 +1,33 @@
 ################################# NY HOSPITALS #################################
 #
-# Title:
-# Files: 
+# Title: Freddie
+# Files: cleaning.py,hospitalsNY.py,input.py, main.py,path.py,regression.py,statistics.py,test_2.py,test.py
+
 #
-# Author:
-# Email:
+# Author:Naixin Zhang
+# Email:nzhang228@wisc.edu
 #
 ############################### OUTSIDE HELP CREDITS ###########################
 #
 # Persons: Cornelia Ilin
-# Online sources:
+# Online sources: available in README file
 #
 ############################### 80 COLUMNS WIDE ################################
 
 import os
 import platform
 
+'''
+# The path.py script holds mainly for setting the input and output path 
+# according to the user's computer system
+'''
+
 def operating_system(OS):
     '''
     # this function sets the drive letter depending on the specified OS
     # @param: OS
     '''
+
     if OS == platform.system():
         global drive_letter 
         drive_letter = os.path.splitdrive(os.getcwd())[0]
