@@ -7,6 +7,7 @@ This is a computer program that simulates a Data Analyst chatbot,  named Freddie
 **Files**: cleaning.py,hospitalsNY.py,input.py, main.py,path.py,regression.py,statistics.py,test_2.py,test.py
 
 **Author**: Naixin Zhang
+
 **Email**: nzhang228@wisc.edu
 
 ############################### OUTSIDE HELP CREDITS ###########################
