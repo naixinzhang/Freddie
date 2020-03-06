@@ -1,5 +1,6 @@
 # Freddie
-This is a computer program that simulates a Data Analyst chatbot, named Freddie, capable of processing user input and returning desired output following the rules and directions in the script. 
+
+This is a computer program that simulates a Data Analyst chatbot,  named Freddie, capable of processing user input and returning desired output following the rules and directions in the script. The chatbot can help identify your computer’s operating system (OS), set the input and output paths, read input data stored into the memory of your computer, provide descriptive statistics for key variables in the analysis, and finally, run a linear regression model of your choice. Check a sample output here.
 
 ################################# NY HOSPITALS #################################
 
@@ -10,7 +11,6 @@ Files: cleaning.py,hospitalsNY.py,input.py, main.py,path.py,regression.py,statis
  Email:nzhang228@wisc.edu
 
 ############################### OUTSIDE HELP CREDITS ###########################
-none
 
 #Online sources: 
 
@@ -66,4 +66,3 @@ sklearn.model_selection.train_test_split
 https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html
 
 
-############################### 80 COLUMNS WIDE ################################
