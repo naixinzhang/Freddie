@@ -4,11 +4,10 @@ This is a computer program that simulates a Data Analyst chatbot,  named Freddie
 
 ################################# NY HOSPITALS #################################
 
-# Title: Freddie
 Files: cleaning.py,hospitalsNY.py,input.py, main.py,path.py,regression.py,statistics.py,test_2.py,test.py
 
- Author:Naixin Zhang
- Email:nzhang228@wisc.edu
+Author:Naixin Zhang
+Email:nzhang228@wisc.edu
 
 ############################### OUTSIDE HELP CREDITS ###########################
 
@@ -55,14 +54,12 @@ https://pythonspot.com/matplotlib-bar-chart/
 13.using tabulate
 https://pypi.org/project/tabulate/
 
-14. draw for scatter
+14.draw for scatter
 https://pythonspot.com/matplotlib-scatterplot/
 
-15. for data splitting into training and testing dataset
+15.for data splitting into training and testing dataset
 sklearn.model_selection.train_test_split
-#https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html
+https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html
 
 16.Linear Regression Example
 https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html
-
-
